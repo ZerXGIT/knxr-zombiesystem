@@ -13,9 +13,14 @@ function requestModelAndCollision(model)
 end
 
 function requestAnimDict(animDict)
+    local attempts = 0
     RequestAnimDict(animDict)
     while not HasAnimSetLoaded(animDict) do
         Wait(1)
+        attempts = attempts + 1
+        if (attempts > 20) then
+            return
+        end
     end
 end
 

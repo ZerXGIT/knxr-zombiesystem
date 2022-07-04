@@ -1,4 +1,4 @@
-local debugMode = true
+local debugMode = false
 
 Citizen.CreateThread(function()
     -- debug
@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
             zCoords = GetEntityCoords(v.ped)
 
             -- Check if the coord is visible on the screen, regardless if any things are in the way
-            local retval, screenX, screenY = GetScreenCoordFromWorldCoord(zCoords.x, zCoords.y, zCoords.z)
+            local retval, _, _ = GetScreenCoordFromWorldCoord(zCoords.x, zCoords.y, zCoords.z)
 
             if retval then
                 AddTextComponentString("true" .. " : " .. v.ped)
@@ -53,7 +53,7 @@ Citizen.CreateThread(function()
     -- debug
     while debugMode do
         Citizen.Wait(0)
-        for i, entity in pairs(entitys) do
+        for _, entity in pairs(entitys) do
             DrawMarker(1, GetEntityCoords(entity.ped), 0, 0, 0, 0, 0, 0, 10.0000, 10.0000, 0.5001, 0, 155, 255, 200, 0, 0, 0, 0)
         end
     end

@@ -6,7 +6,7 @@ function walker.new(x, y, z)
     instance = setmetatable({
         ped = nil,
         target = nil,
-        movementStyle = "move_m@injured",
+        movementStyle = "move_m@drunk@verydrunk",
         zombieDamage = 15,
         sensingRange = 120.0,
         behindZombieNoticeDistance = 5.0,
@@ -21,13 +21,16 @@ function walker.new(x, y, z)
     requestModelAndCollision("u_m_y_zombie_01")
     instance.ped = CreatePed(4, GetHashKey("u_m_y_zombie_01"), x, y, z, "255", true, false)
 
-    print("Created at: ", GetEntityCoords(instance.ped))
-
-    table.insert(entitys, instance)
     return instance
 end
 
-function walker:onAttackTarget(target)
+function walker:onGoToTarget()
+    TaskGoToEntity(self.ped, self.target, -1, 0.0, 1.0, 1073741824, 0)
+    Citizen.Wait(500)
+end
+
+function walker:onAttackTarget()
+    local target = self.target
     if (IsPlayerDead(target)) then
         if not (IsEntityPlayingAnim(self.ped, "amb@world_human_bum_wash@male@high@idle_a", "idle_b")) then
             requestAnimDict("amb@world_human_bum_wash@male@high@idle_a")
@@ -42,6 +45,7 @@ function walker:onAttackTarget(target)
             end
         end
     end
+    Citizen.Wait(250)
 
 end
 

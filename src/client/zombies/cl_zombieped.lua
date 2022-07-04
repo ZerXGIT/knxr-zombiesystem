@@ -2,7 +2,6 @@ zombiePed = {}
 zombiePed.__index = zombiePed
 
 function zombiePed:update(target, pos)
-    print(self.target)
     local ped = self.ped
     local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(target), true)
 
@@ -14,29 +13,30 @@ function zombiePed:update(target, pos)
         table.remove(entitys, pos)
     end
 
+    if IsEntityDead(ped) then
+        return
+    end
+
     self:getTarget()
     self:setWalkStyle()
     if (IsEntityOnFire(ped)) and not IsEntityDead(ped) then
         SetEntityHealth(ped, 0)
     end
+
     StopCurrentPlayingAmbientSpeech(ped)
     if (self.target == nil) then
         return
     end
 
     if (distance > self.attackRange) then
-        print("GOING TO TARGET")
-        self.attackingTarget = false
-        self.goingToTarget = true
+        self:onGoToTarget()
     else
-        print("ATTACKING")
-        self.attackingTarget = true
-        self.goingToTarget = false
+        self:onAttackTarget()
     end
 end
 
 function zombiePed:isOnScreen()
-    local isOnScreen, screenX, screenY = GetScreenCoordFromWorldCoord(table.unpack(GetEntityCoords(ped)))
+    local isOnScreen, _, _ = GetScreenCoordFromWorldCoord(table.unpack(GetEntityCoords(self.ped)))
     if (isOnScreen) then
         return 1
     else
