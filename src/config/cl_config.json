@@ -1,3 +1,26 @@
 {
-  "name": "Test"
+  "zombiesSettings": {
+    "runner": {
+      "movementStyle": "move_m@drunk@verydrunk",
+      "zombieDamage": 150,
+      "sensingRange": 120.0,
+      "behindZombieNoticeDistance": 5.0,
+      "runningNoticeDistance": 25.0,
+      "attackRange": 1.2,
+      "visionDistance": 35.0,
+      "wanderRadius": 100.0,
+      "speed": 5
+    },
+    "walker": {
+      "movementStyle": "move_m@drunk@verydrunk",
+      "zombieDamage": 150,
+      "sensingRange": 120.0,
+      "behindZombieNoticeDistance": 5.0,
+      "runningNoticeDistance": 25.0,
+      "attackRange": 1.2,
+      "visionDistance": 35.0,
+      "wanderRadius": 100.0,
+      "speed": 1
+    }
+  }
 }

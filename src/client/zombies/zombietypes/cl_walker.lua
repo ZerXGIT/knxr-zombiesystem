@@ -3,19 +3,21 @@ walker.__index = walker
 setmetatable(walker, zombiePed)
 
 function walker.new(x, y, z)
+    local zombieConfig = getZombieConfig("walker")
     instance = setmetatable({
         ped = nil,
         target = nil,
-        movementStyle = "move_m@drunk@verydrunk",
-        zombieDamage = 15,
-        sensingRange = 120.0,
-        behindZombieNoticeDistance = 5.0,
-        runningNoticeDistance = 25.0,
-        attackRange = 1.2,
-        visionDistance = 35.0,
-        wanderRadius = 100.0,
         goingToTarget = false,
         attackingTarget = false,
+        movementStyle = zombieConfig["movementStyle"],
+        zombieDamage = zombieConfig["zombieDamage"],
+        sensingRange = zombieConfig["sensingRange"],
+        behindZombieNoticeDistance = zombieConfig["behindZombieNoticeDistance"],
+        runningNoticeDistance = zombieConfig["runningNoticeDistance"],
+        attackRange = zombieConfig["attackRange"],
+        visionDistance = zombieConfig["visionDistance"],
+        wanderRadius = zombieConfig["wanderRadius"],
+        speed = zombieConfig["speed"]
     }, walker)
 
     requestModelAndCollision("u_m_y_zombie_01")
@@ -25,7 +27,7 @@ function walker.new(x, y, z)
 end
 
 function walker:onGoToTarget()
-    TaskGoToEntity(self.ped, self.target, -1, 0.0, 1.0, 1073741824, 0)
+    TaskGoToEntity(self.ped, self.target, -1, 0.0, self.speed, 1073741824, 0)
     Citizen.Wait(500)
 end
 

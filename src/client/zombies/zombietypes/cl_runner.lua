@@ -3,19 +3,21 @@ runner.__index = runner
 setmetatable(runner, zombiePed)
 
 function runner.new(x, y, z)
+    local zombieConfig = getZombieConfig("runner")
     instance = setmetatable({
         ped = nil,
         target = nil,
-        movementStyle = "move_m@drunk@verydrunk",
-        zombieDamage = 150,
-        sensingRange = 120.0,
-        behindZombieNoticeDistance = 5.0,
-        runningNoticeDistance = 25.0,
-        attackRange = 1.2,
-        visionDistance = 35.0,
-        wanderRadius = 100.0,
         goingToTarget = false,
         attackingTarget = false,
+        movementStyle = zombieConfig["movementStyle"],
+        zombieDamage = zombieConfig["zombieDamage"],
+        sensingRange = zombieConfig["sensingRange"],
+        behindZombieNoticeDistance = zombieConfig["behindZombieNoticeDistance"],
+        runningNoticeDistance = zombieConfig["runningNoticeDistance"],
+        attackRange = zombieConfig["attackRange"],
+        visionDistance = zombieConfig["visionDistance"],
+        wanderRadius = zombieConfig["wanderRadius"],
+        speed = zombieConfig["speed"]
     }, runner)
 
     requestModelAndCollision("a_f_m_beach_01")
