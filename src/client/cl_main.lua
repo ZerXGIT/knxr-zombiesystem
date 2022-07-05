@@ -20,7 +20,7 @@ print([[
 ]])
 
 entities = {}
-local players = {}
+players = {}
 
 -- Zombie Attack & Despawn Thread
 Citizen.CreateThread(function()
