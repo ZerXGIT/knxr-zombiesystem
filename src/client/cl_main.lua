@@ -8,13 +8,24 @@
   Skript created by ZerX!
 ]]
 
-local entitys = {}
+--Banner
+print([[
+  _  __
+ | |/ /  ___   _ _    ___  __ __  __ _   _ _
+ | ' <  / -_) | ' \  / -_) \ \ / / _` | | '_|
+ |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
+           github.com/kenexar
+
+  Skript created by ZerX!
+]])
+
+entities = {}
 local players = {}
 
 -- Zombie Attack & Despawn Thread
 Citizen.CreateThread(function()
     while true do
-        for i, entity in pairs(entitys) do
+        for i, entity in pairs(entities) do
             for _, player in pairs(players) do
                 entity:update(player, i)
             end
@@ -25,21 +36,19 @@ end)
 
 RegisterCommand("spawnzmbi", function()
     local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))
-    local insta = walker.new(x, y, z)
-    table.insert(entitys, insta)
+    walker.new(x, y, z)
 
-    local insta2 = runner.new(x, y, z)
-    table.insert(entitys, insta2)
+    runner.new(x, y, z)
 
 end)
 
 RegisterCommand("delall", function()
-    for i, v in ipairs(entitys) do
+    for i, v in ipairs(entities) do
         print(i)
         DeleteEntity(v.ped)
     end
 
-    entitys = {}
+    entities = {}
 end)
 
 RegisterCommand("ins", function()

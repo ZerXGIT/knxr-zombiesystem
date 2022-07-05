@@ -33,6 +33,7 @@ function walker.new(x, y, z)
     requestModelAndCollision("u_m_y_zombie_01")
     instance.ped = CreatePed(4, GetHashKey("u_m_y_zombie_01"), x, y, z, "255", true, false)
 
+    table.insert(entities, instance)
     return instance
 end
 

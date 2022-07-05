@@ -33,6 +33,7 @@ function runner.new(x, y, z)
     requestModelAndCollision("a_f_m_beach_01")
     instance.ped = CreatePed(4, GetHashKey("a_f_m_beach_01"), x, y, z, "255", true, false)
 
+    table.insert(entities, instance)
     return instance
 end
 
