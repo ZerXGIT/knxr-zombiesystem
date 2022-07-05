@@ -45,8 +45,8 @@ function runner:onAttackTarget()
             end
         end
     end
-    Citizen.Wait(250)
 
+    Citizen.Wait(250)
 end
 
 --[[function spawnRunner(x, y, z)

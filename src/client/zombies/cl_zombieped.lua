@@ -47,7 +47,7 @@ end
 function zombiePed:getTarget()
     local closest = self:getNearestPlayer(self.sensingRange)
 
-    if (hasClearLineOfSight(self.ped, closest, self.visionDistance)) and self:canHearPed(closest) then
+    if (hasClearLineOfSight(self.ped, closest, self.visionDistance)) or self:canHearPed(closest) then
         self.target = closest
     else
         if (self.target ~= nil) and (closest ~= self.target) then
@@ -76,7 +76,8 @@ function zombiePed:getNearestPlayer(range)
 end
 
 function zombiePed:canHearPed(target)
-    local distance = GetDistanceBetweenCoords(self.ped, target)
+    local distance = GetDistanceBetweenCoords(GetEntityCoords(self.ped), GetEntityCoords(target))
+    print("canHearPed: ", self:isBehindZombie(distance) or self:isRunningNoticed(target, distance))
     return self:isBehindZombie(distance) or self:isRunningNoticed(target, distance)
 end
 
@@ -85,7 +86,7 @@ function zombiePed:isBehindZombie(distance)
 end
 
 function zombiePed:isRunningNoticed(target, distance)
-    return IsPedSprinting(target) and distance < runningNoticeDistance
+    return IsPedSprinting(target) and distance < self.runningNoticeDistance
 end
 
 function zombiePed:setWalkStyle()

@@ -3,7 +3,6 @@ players = {}
 
 -- Zombie Attack & Despawn Thread
 Citizen.CreateThread(function()
-    table.insert(players, PlayerPedId())
     while true do
         for i, entity in pairs(entitys) do
             for _, player in pairs(players) do
@@ -31,4 +30,8 @@ RegisterCommand("delall", function()
     end
 
     entitys = {}
+end)
+
+RegisterCommand("ins", function()
+    table.insert(players, PlayerPedId())
 end)
