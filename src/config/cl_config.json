@@ -2,7 +2,7 @@
   "zombiesSettings": {
     "runner": {
       "movementStyle": "move_m@drunk@verydrunk",
-      "zombieDamage": 150,
+      "zombieDamage": 25,
       "sensingRange": 120.0,
       "behindZombieNoticeDistance": 5.0,
       "runningNoticeDistance": 25.0,
@@ -13,7 +13,7 @@
     },
     "walker": {
       "movementStyle": "move_m@drunk@verydrunk",
-      "zombieDamage": 150,
+      "zombieDamage": 25,
       "sensingRange": 120.0,
       "behindZombieNoticeDistance": 5.0,
       "runningNoticeDistance": 25.0,
