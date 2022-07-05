@@ -1,5 +1,15 @@
+--[[
+  _  __
+ | |/ /  ___   _ _    ___  __ __  __ _   _ _
+ | ' <  / -_) | ' \  / -_) \ \ / / _` | | '_|
+ |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
+           github.com/kenexar
+
+  Skript created by ZerX!
+]]
+
 local entitys = {}
-players = {}
+local players = {}
 
 -- Zombie Attack & Despawn Thread
 Citizen.CreateThread(function()

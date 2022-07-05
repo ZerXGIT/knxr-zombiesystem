@@ -1,5 +1,19 @@
+--[[
+  _  __
+ | |/ /  ___   _ _    ___  __ __  __ _   _ _
+ | ' <  / -_) | ' \  / -_) \ \ / / _` | | '_|
+ |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
+           github.com/kenexar
+
+  Skript created by ZerX!
+]]
+
 fx_version 'cerulean'
 games { 'gta5' }
+
+author 'ZerX <github.com/kenexar>'
+description 'Advanced Zombie Skript'
+version '1.0.0'
 
 client_scripts {
     "client/utils/cl_config.lua",

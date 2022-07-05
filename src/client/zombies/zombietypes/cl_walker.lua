@@ -1,3 +1,13 @@
+--[[
+  _  __
+ | |/ /  ___   _ _    ___  __ __  __ _   _ _
+ | ' <  / -_) | ' \  / -_) \ \ / / _` | | '_|
+ |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
+           github.com/kenexar
+
+  Skript created by ZerX!
+]]
+
 walker = {}
 walker.__index = walker
 setmetatable(walker, zombiePed)
