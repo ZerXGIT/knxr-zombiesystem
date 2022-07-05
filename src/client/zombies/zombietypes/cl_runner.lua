@@ -27,7 +27,7 @@ function runner.new(x, y, z)
 end
 
 function runner:onGoToTarget()
-    TaskGoToEntity(self.ped, self.target, -1, 0.0, 5.0, 1073741824, 0)
+    TaskGoToEntity(self.ped, self.target, -1, 0.0, self.speed, 1073741824, 0)
     Citizen.Wait(500)
 end
 
