@@ -16,11 +16,11 @@ function zombiePed:update(target, pos)
     local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(target), true)
 
     if (distance > 120.0) and not (self:isOnScreen()) and (IsEntityDead(ped)) then
-        DeleteEntity(ped)
         local model = GetEntityModel(ped)
         SetEntityAsNoLongerNeeded(ped)
         SetModelAsNoLongerNeeded(model)
-        table.remove(entitys, pos)
+        DeleteEntity(ped)
+        table.remove(entities, pos)
     end
 
     if IsEntityDead(ped) then
@@ -40,6 +40,7 @@ function zombiePed:update(target, pos)
 
     if (distance > self.attackRange) then
         self:onGoToTarget()
+        
     else
         self:onAttackTarget()
     end
@@ -87,7 +88,6 @@ end
 
 function zombiePed:canHearPed(target)
     local distance = GetDistanceBetweenCoords(GetEntityCoords(self.ped), GetEntityCoords(target))
-    print("canHearPed: ", self:isBehindZombie(distance) or self:isRunningNoticed(target, distance))
     return self:isBehindZombie(distance) or self:isRunningNoticed(target, distance)
 end
 

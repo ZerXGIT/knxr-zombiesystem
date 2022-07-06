@@ -1,7 +1,7 @@
 {
   "zombiesSettings": {
     "runner": {
-      "movementStyle": "move_m@drunk@verydrunk",
+      "movementStyle": "move_m@injured",
       "zombieDamage": 25,
       "sensingRange": 120.0,
       "behindZombieNoticeDistance": 5.0,
@@ -9,7 +9,13 @@
       "attackRange": 1.2,
       "visionDistance": 35.0,
       "wanderRadius": 100.0,
-      "speed": 5.0
+      "speed": 5.0,
+      "models": [
+        "a_f_y_runner_01",
+        "a_f_o_soucent_01",
+        "a_m_y_runner_01",
+        "a_m_y_runner_02"
+      ]
     },
     "walker": {
       "movementStyle": "move_m@drunk@verydrunk",
@@ -20,7 +26,17 @@
       "attackRange": 1.2,
       "visionDistance": 35.0,
       "wanderRadius": 100.0,
-      "speed": 1.0
+      "speed": 1.0,
+      "models": [
+        "a_m_m_hillbilly_01",
+        "a_m_m_hillbilly_02",
+        "a_m_m_rurmeth_01",
+        "a_m_m_salton_01",
+        "a_m_m_salton_02",
+        "a_m_o_salton_01",
+        "a_m_y_salton_01",
+        "u_m_y_zombie_01"
+      ]
     }
   }
 }

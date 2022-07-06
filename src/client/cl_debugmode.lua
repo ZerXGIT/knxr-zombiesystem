@@ -8,13 +8,13 @@
   Skript created by ZerX!
 ]]
 
-local debugMode = false
+local debugMode = true
 
 Citizen.CreateThread(function()
     -- debug
     while debugMode do
         Citizen.Wait(0)
-        for i, v in ipairs(entitys) do
+        for i, v in ipairs(entities) do
             SetTextFont(0)
             SetTextProportional(1)
             SetTextScale(0.0, 0.50)
@@ -63,7 +63,7 @@ Citizen.CreateThread(function()
     -- debug
     while debugMode do
         Citizen.Wait(0)
-        for _, entity in pairs(entitys) do
+        for _, entity in pairs(entities) do
             DrawMarker(1, GetEntityCoords(entity.ped), 0, 0, 0, 0, 0, 0, 10.0000, 10.0000, 0.5001, 0, 155, 255, 200, 0, 0, 0, 0)
         end
     end

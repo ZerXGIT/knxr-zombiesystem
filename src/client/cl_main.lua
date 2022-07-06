@@ -24,6 +24,7 @@ players = {}
 
 -- Zombie Attack & Despawn Thread
 Citizen.CreateThread(function()
+    table.insert(players, PlayerPedId())
     while true do
         for i, entity in pairs(entities) do
             for _, player in pairs(players) do
@@ -31,24 +32,20 @@ Citizen.CreateThread(function()
             end
         end
         Citizen.Wait(500)
+        print(PlayerPedId())
     end
 end)
 
 RegisterCommand("spawnzmbi", function()
-    local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))
-    --  walker.new(x, y, z)
-
-    local r = runner.new(x, y, z)
-
-
+    spawnZombie(table.unpack(GetEntityCoords(PlayerPedId())))
 end)
 
 RegisterCommand("delall", function()
     for i, v in ipairs(entities) do
-        print(i)
         DeleteEntity(v.ped)
     end
 
+    print("DELETED: ", #entities)
     entities = {}
 end)
 

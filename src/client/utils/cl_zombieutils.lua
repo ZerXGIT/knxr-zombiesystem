@@ -11,3 +11,7 @@
 function hasClearLineOfSight(entity, target, viewDistance)
     return HasEntityClearLosToEntityInFront(entity, target) and GetDistanceBetweenCoords(GetEntityCoords(entity), GetEntityCoords(target)) < viewDistance
 end
+
+function getRandomZombieModel(array)
+    return array[math.random(1, #array)]
+end

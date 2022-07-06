@@ -28,7 +28,7 @@ function requestAnimDict(animDict)
     while not HasAnimSetLoaded(animDict) do
         Wait(1)
         attempts = attempts + 1
-        if (attempts > 20) then
+        if (attempts > 10) then
             return
         end
     end
