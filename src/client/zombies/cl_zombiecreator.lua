@@ -16,13 +16,11 @@ ToDo:
 ]]
 function spawnZombie(x, y, z)
     local zombiePed;
-
-    local rint = math.random(1, 2)
-
-    if rint == 1 then
+    
+    if math.random(1, 2) == 1 then
         zombiePed = walker.new(x, y, z).ped
     else
-        zombiePed = walker.new(x, y, z).ped
+        zombiePed = runner.new(x, y, z).ped
     end
 
     AddRelationshipGroup("zombie_normal")
