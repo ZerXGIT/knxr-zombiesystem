@@ -27,7 +27,7 @@ function walker.new(x, y, z)
         attackRange = zombieConfig["attackRange"],
         visionDistance = zombieConfig["visionDistance"],
         wanderRadius = zombieConfig["wanderRadius"],
-        speed = zombieConfig["speed"]
+        speed = zombieConfig["speed"],
     }, walker)
 
     requestModelAndCollision("u_m_y_zombie_01")

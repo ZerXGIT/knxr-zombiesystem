@@ -9,7 +9,7 @@
       "attackRange": 1.2,
       "visionDistance": 35.0,
       "wanderRadius": 100.0,
-      "speed": 5
+      "speed": 5.0
     },
     "walker": {
       "movementStyle": "move_m@drunk@verydrunk",
@@ -20,7 +20,7 @@
       "attackRange": 1.2,
       "visionDistance": 35.0,
       "wanderRadius": 100.0,
-      "speed": 1
+      "speed": 1.0
     }
   }
 }

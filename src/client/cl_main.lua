@@ -36,9 +36,10 @@ end)
 
 RegisterCommand("spawnzmbi", function()
     local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))
-    walker.new(x, y, z)
+    --  walker.new(x, y, z)
 
-    runner.new(x, y, z)
+    local r = runner.new(x, y, z)
+
 
 end)
 

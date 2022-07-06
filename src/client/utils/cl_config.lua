@@ -14,3 +14,5 @@ local tmpConfig = json.decode(configJson)
 function getZombieConfig(zombieType)
     return tmpConfig["zombiesSettings"][zombieType]
 end
+
+print(getZombieConfig("runner"))

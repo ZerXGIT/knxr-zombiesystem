@@ -27,7 +27,7 @@ function runner.new(x, y, z)
         attackRange = zombieConfig["attackRange"],
         visionDistance = zombieConfig["visionDistance"],
         wanderRadius = zombieConfig["wanderRadius"],
-        speed = zombieConfig["speed"]
+        speed = zombieConfig["speed"],
     }, runner)
 
     requestModelAndCollision("a_f_m_beach_01")
