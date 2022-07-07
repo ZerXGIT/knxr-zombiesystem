@@ -11,8 +11,12 @@
 local configJson = LoadResourceFile(GetCurrentResourceName(), "config/cl_config.json")
 local tmpConfig = json.decode(configJson)
 
-function getZombieConfig(zombieType)
+function getZombieConfigForType(zombieType)
     return tmpConfig["zombiesSettings"][zombieType]
 end
 
-print(getZombieConfig("runner"))
+function getZombieSpawnConfig()
+    return tmpConfig["spawnSettings"]
+end
+
+print(getZombieConfigForType("runner"))

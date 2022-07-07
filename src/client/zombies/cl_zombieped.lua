@@ -15,6 +15,7 @@ function zombiePed:update(target, pos)
     local ped = self.ped
     local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(target), true)
 
+    -- Despawn
     if (distance > 120.0) and not (self:isOnScreen()) and (IsEntityDead(ped)) then
         local model = GetEntityModel(ped)
         SetEntityAsNoLongerNeeded(ped)
@@ -27,6 +28,7 @@ function zombiePed:update(target, pos)
         return
     end
 
+    print("TRIGGER")
     self:getTarget()
     self:setWalkStyle()
     if (IsEntityOnFire(ped)) and not IsEntityDead(ped) then
@@ -40,7 +42,7 @@ function zombiePed:update(target, pos)
 
     if (distance > self.attackRange) then
         self:onGoToTarget()
-        
+
     else
         self:onAttackTarget()
     end

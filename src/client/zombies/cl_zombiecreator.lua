@@ -16,7 +16,7 @@ ToDo:
 ]]
 function spawnZombie(x, y, z)
     local zombiePed;
-    
+
     if math.random(1, 2) == 1 then
         zombiePed = walker.new(x, y, z).ped
     else
@@ -29,7 +29,6 @@ function spawnZombie(x, y, z)
     SetRelationshipBetweenGroups(2, GetHashKey("PLAYER"), GetHashKey("zombie_normal"))
 
     -- Disable Ped Animation
-    print(zombiePed)
     SetPedCanPlayGestureAnims(zombiePed, false)
     SetPedCanPlayAmbientAnims(zombiePed, false)
 

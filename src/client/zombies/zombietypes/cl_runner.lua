@@ -13,7 +13,7 @@ runner.__index = runner
 setmetatable(runner, zombiePed)
 
 function runner.new(x, y, z)
-    local zombieConfig = getZombieConfig("runner")
+    local zombieConfig = getZombieConfigForType("runner")
     instance = setmetatable({
         ped = nil,
         target = nil,
@@ -41,12 +41,10 @@ end
 
 function runner:onGoToTarget()
     TaskGoToEntity(self.ped, self.target, -1, 0.0, self.speed, 1073741824, 0)
-    Citizen.Wait(500)
 end
 
 function runner:onAttackTarget()
     local target = self.target
-    print("isDead: ", IsPlayerDead(target))
     if (IsPedDeadOrDying(target, 1)) then
         if not (IsEntityPlayingAnim(self.ped, "amb@world_human_bum_wash@male@high@idle_a", "idle_b")) then
             requestAnimDict("amb@world_human_bum_wash@male@high@idle_a")
@@ -61,6 +59,4 @@ function runner:onAttackTarget()
             end
         end
     end
-
-    Citizen.Wait(250)
 end

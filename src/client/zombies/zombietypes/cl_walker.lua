@@ -13,7 +13,7 @@ walker.__index = walker
 setmetatable(walker, zombiePed)
 
 function walker.new(x, y, z)
-    local zombieConfig = getZombieConfig("walker")
+    local zombieConfig = getZombieConfigForType("walker")
     instance = setmetatable({
         ped = nil,
         target = nil,
@@ -40,21 +40,17 @@ function walker.new(x, y, z)
 end
 
 function walker:onGoToTarget()
-    print("W: Walk")
     TaskGoToEntity(self.ped, self.target, -1, 0.0, self.speed, 1073741824, 0)
-    Citizen.Wait(500)
 end
 
 function walker:onAttackTarget()
     local target = self.target
     if (IsPlayerDead(target)) then
-        print("W: ATTACK 1")
         if not (IsEntityPlayingAnim(self.ped, "amb@world_human_bum_wash@male@high@idle_a", "idle_b")) then
             requestAnimDict("amb@world_human_bum_wash@male@high@idle_a")
             TaskPlayAnim(self.ped, "amb@world_human_bum_wash@male@high@idle_a", "idle_b", 8.0, -1, 1)
         end
     else
-        print("W: ATTACK 2")
         if not (IsEntityPlayingAnim(self.ped, "rcmbarry", "bar_1_teleport_aln")) then
             requestAnimDict("rcmbarry")
             TaskPlayAnim(self._ped, "rcmbarry", "bar_1_teleport_aln", 8.0, 1000, 16)
@@ -63,7 +59,5 @@ function walker:onAttackTarget()
             end
         end
     end
-    Citizen.Wait(250)
-
 end
 

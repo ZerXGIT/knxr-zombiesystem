@@ -28,7 +28,7 @@ client_scripts {
 }
 
 server_scripts {
-    "sv_main.lua"
+    "server/sv_main.lua"
 }
 
 file 'config/cl_config.json'
