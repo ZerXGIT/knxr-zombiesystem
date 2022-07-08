@@ -29,8 +29,7 @@ players = {}
 TriggerServerEvent("knxr-zombiesystem:server:registernewplayer", PlayerPedId())
 
 -- Register Sync event
-RegisterNetEvent("knxr-zombiesystem:client:syncall")
-AddEventHandler("knxr-zombiesystem:client:syncall", function(playersArr)
+RegisterNetEvent("knxr-zombiesystem:client:syncall", function(playersArr)
     players = playersArr
 end)
 
@@ -45,13 +44,10 @@ local function getSpawnCoords(playerPed, min, max)
     return vector3(x, y, z)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local canSpawn = true
     local spawnConfig = getZombieSpawnConfig()
-    while true do
-        for _, player in pairs(players) do
-            print(player)
-        end
+    while false do
         repeat
             Citizen.Wait(0)
             if #entities < spawnConfig["maxZombies"] then
@@ -68,12 +64,11 @@ Citizen.CreateThread(function()
 end)
 
 -- Zombie Attack & Despawn Thread
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
+        --         for i = 1, #entities do
         for i, entity in pairs(entities) do
-            print(players)
             for _, player in pairs(players) do
-                print(player)
                 entity:update(player, i)
             end
         end
@@ -82,7 +77,9 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand("spawnzmbi", function()
-    spawnZombie(table.unpack(GetEntityCoords(PlayerPedId())))
+    for i = 1, 20 do
+        spawnZombie(table.unpack(GetEntityCoords(PlayerPedId())))
+    end
 end)
 
 RegisterCommand("delall", function()

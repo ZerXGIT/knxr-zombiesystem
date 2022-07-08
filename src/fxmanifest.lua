@@ -23,7 +23,7 @@ client_scripts {
     "client/zombies/zombietypes/cl_walker.lua",
     "client/zombies/zombietypes/cl_runner.lua",
     "client/zombies/cl_zombiecreator.lua",
-    "client/cl_debugmode.lua",
+    "client/utils/cl_debugmode.lua",
     "client/cl_main.lua"
 }
 

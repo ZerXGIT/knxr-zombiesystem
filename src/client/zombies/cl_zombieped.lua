@@ -28,7 +28,6 @@ function zombiePed:update(target, pos)
         return
     end
 
-    print("TRIGGER")
     self:getTarget()
     self:setWalkStyle()
     if (IsEntityOnFire(ped)) and not IsEntityDead(ped) then
@@ -42,7 +41,6 @@ function zombiePed:update(target, pos)
 
     if (distance > self.attackRange) then
         self:onGoToTarget()
-
     else
         self:onAttackTarget()
     end

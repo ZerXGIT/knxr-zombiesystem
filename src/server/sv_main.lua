@@ -22,3 +22,24 @@ function updatePlayers()
         TriggerClientEvent("knxr-zombiesystem:client:syncall", player, players)
     end
 end
+
+local function bench(name, myfunc)
+    start_timer = os.clock()
+    -- myfunc()
+    print("[", name, "] Took ", string.format("%.2f", os.clock() - start_timer), " ms")
+end
+
+list = {}
+
+for i = 1, 200 do
+    table.insert(list, i)
+end
+
+bench("ForLOOP", function()
+    for i = 1, #list do
+        SetTimeout(math.random(100, 400), function()
+            print(i)
+        end)
+    end
+end)
+
