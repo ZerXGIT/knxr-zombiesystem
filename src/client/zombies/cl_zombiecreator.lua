@@ -5,8 +5,9 @@
  |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
            github.com/kenexar
 
-  Skript created by ZerX!
+   Script by ZerX (github.com/ZerXGIT)
 ]]
+
 
 
 --[[
@@ -47,7 +48,9 @@ function spawnZombie(x, y, z)
     SetPedCombatMovement(zombiePed, 0)
 
     -- Disable Pain audio
-    DisablePedPainAudio(zombiePed, 1)
+    StopPedSpeaking(zombiePed, true)
+    SetAmbientVoiceName(zombiePed, "kerry")
+    DisablePedPainAudio(zombiePed, true)
 
     -- Blood fx
     ApplyPedDamagePack(zombiePed, "BigHitByVehicle", 1, 0)

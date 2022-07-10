@@ -5,7 +5,7 @@
  |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
            github.com/kenexar
 
-  Skript created by ZerX!
+   Script by ZerX (github.com/ZerXGIT)
 ]]
 
 -- Debugmode has huge performance impact

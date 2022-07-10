@@ -1,8 +1,8 @@
 {
   "spawnSettings": {
     "maxZombies": 50,
-    "minSpawnDistance": 10.0,
-    "maxSpawnDistance": 20.0
+    "minSpawnDistance": 50.0,
+    "maxSpawnDistance": 100.0
   },
   "zombiesSettings": {
     "runner": {

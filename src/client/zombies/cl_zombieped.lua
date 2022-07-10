@@ -5,8 +5,9 @@
  |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
            github.com/kenexar
 
-  Skript created by ZerX!
+   Script by ZerX (github.com/ZerXGIT)
 ]]
+
 
 zombiePed = {}
 zombiePed.__index = zombiePed
@@ -15,8 +16,8 @@ function zombiePed:update(target, pos)
     local ped = self.ped
     local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(target), true)
 
-    -- Despawn
-    if (distance > 120.0) and not (self:isOnScreen()) and (IsEntityDead(ped)) then
+    -- Despawn and not (self:isOnScreen()) and (IsEntityDead(ped))
+    if (distance > 120.0) then
         local model = GetEntityModel(ped)
         SetEntityAsNoLongerNeeded(ped)
         SetModelAsNoLongerNeeded(model)
@@ -36,6 +37,7 @@ function zombiePed:update(target, pos)
 
     StopCurrentPlayingAmbientSpeech(ped)
     if (self.target == nil) then
+        TaskWanderInArea(ped, GetEntityCoords(ped), self.wanderRadius, 2, 10.0)
         return
     end
 

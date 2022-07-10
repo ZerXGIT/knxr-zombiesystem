@@ -5,19 +5,8 @@
  |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
            github.com/kenexar
 
-  Skript created by ZerX!
+   Script by ZerX (github.com/ZerXGIT)
 ]]
-
---Banner
-print([[
-  _  __
- | |/ /  ___   _ _    ___  __ __  __ _   _ _
- | ' <  / -_) | ' \  / -_) \ \ / / _` | | '_|
- |_|\_\ \___| |_||_| \___| /_\_\ \__,_| |_|
-           github.com/kenexar
-
-  Skript created by ZerX!
-]])
 
 entities = {}
 players = {}
@@ -25,7 +14,6 @@ players = {}
 -- ToDo: Performance and Sync
 
 -- Sync
-
 TriggerServerEvent("knxr-zombiesystem:server:registernewplayer", PlayerPedId())
 
 -- Register Sync event
@@ -47,7 +35,7 @@ end
 CreateThread(function()
     local canSpawn = true
     local spawnConfig = getZombieSpawnConfig()
-    while false do
+    while true do
         repeat
             Citizen.Wait(0)
             if #entities < spawnConfig["maxZombies"] then
