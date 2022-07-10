@@ -17,11 +17,12 @@ function zombiePed:update(target, pos)
     local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(target), true)
 
     -- Despawn and not (self:isOnScreen()) and (IsEntityDead(ped))
-    if (distance > 120.0) then
+    if (distance > 200.0) then
         local model = GetEntityModel(ped)
         SetEntityAsNoLongerNeeded(ped)
         SetModelAsNoLongerNeeded(model)
         DeleteEntity(ped)
+        Citizen.Trace("Delete Entity")
         table.remove(entities, pos)
     end
 
@@ -74,6 +75,7 @@ function zombiePed:getNearestPlayer(range)
     smallest = {}
 
     for j, player in pairs(players) do
+        local player = GetPlayerPed(player)
         local distance = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(self.ped), true)
         if (smallest.num == nil) or (distance < smallest.num) then
             smallest.num = distance
@@ -82,7 +84,7 @@ function zombiePed:getNearestPlayer(range)
     end
 
     if (smallest.num <= range) then
-        return players[smallest.i]
+        return GetPlayerPed(players[smallest.i])
     end
 
     return nil

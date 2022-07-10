@@ -52,7 +52,7 @@ function spawnZombie(x, y, z)
     SetAmbientVoiceName(zombiePed, "kerry")
     DisablePedPainAudio(zombiePed, true)
 
-    -- Blood fx
+    -- Blood fxwww
     ApplyPedDamagePack(zombiePed, "BigHitByVehicle", 1, 0)
     ApplyPedDamagePack(zombiePed, "Explosion_Med", 1, 0)
 

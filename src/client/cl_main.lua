@@ -14,10 +14,15 @@ players = {}
 -- ToDo: Performance and Sync
 
 -- Sync
-TriggerServerEvent("knxr-zombiesystem:server:registernewplayer", PlayerPedId())
+
+TriggerServerEvent("knxr-zombiesystem:server:registernewplayer", PlayerId())
 
 -- Register Sync event
 RegisterNetEvent("knxr-zombiesystem:client:syncall", function(playersArr)
+    print("return arr: ", playersArr)
+    for _, id in pairs(playersArr) do
+        print(id)
+    end
     players = playersArr
 end)
 
@@ -31,6 +36,8 @@ local function getSpawnCoords(playerPed, min, max)
 
     return vector3(x, y, z)
 end
+
+SetWeatherTypeNow("FOGGY")
 
 CreateThread(function()
     local canSpawn = true
@@ -57,7 +64,7 @@ CreateThread(function()
         --         for i = 1, #entities do
         for i, entity in pairs(entities) do
             for _, player in pairs(players) do
-                entity:update(player, i)
+                entity:update(GetPlayerPed(player), i)
             end
         end
         Citizen.Wait(1000)

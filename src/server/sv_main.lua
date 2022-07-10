@@ -20,15 +20,7 @@ print([[
   Skript created by ZerX!
 ]])
 
-RegisterNetEvent("knxr-zombiesystem:server:registernewplayer")
-AddEventHandler("knxr-zombiesystem:server:registernewplayer", function(player)
+RegisterNetEvent("knxr-zombiesystem:server:registernewplayer", function(player)
     table.insert(players, player)
-    updatePlayers()
+    TriggerClientEvent("knxr-zombiesystem:client:syncall", -1, players)
 end)
-
-function updatePlayers()
-    for _, player in pairs(players) do
-        print(player)
-        TriggerClientEvent("knxr-zombiesystem:client:syncall", player, players)
-    end
-end
